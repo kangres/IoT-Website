@@ -1,52 +1,53 @@
 <!DOCTYPE html>
+
 <head>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
 
-<link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
-<style>
-.container{
-width:1000px;
-margin-left:-200px;
-}
-#result{
-border:solid black 2px;
-width:150px;
-height:200px;
-margin-left:1000px;
-margin-top:-600px;
-background:#FF00FF;
-}
-</style>
-<script>
-var count=0;
-var module = [];
-var text = "";
-	$(document).ready(function(){
- 
-  // Initialize select2
-  $("#selModule").select2();
+  <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
+  <style>
+    .container {
+      width: 1000px;
+      margin-left: -200px;
+    }
 
-  // Read selected option
-  $('#but_read').click(function(){
-    var username = $('#selModule option:selected').text();
-	count++;
-	
-	module[count]=username;
-    var userid = $('#selModule').val();
-  });
-   $('#show').click(function(){
-    for(i=0;i<module.length;i++)
-	{
-		text += module[i] + "    "+ "X" + "<br>";
-	}
-	document.getElementById('result').innerHTML = text;
-		
-  });
-});
-</script>
-<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    #result {
+      border: solid black 2px;
+      width: 150px;
+      height: 200px;
+      margin-left: 1000px;
+      margin-top: -600px;
+      background: #FF00FF;
+    }
+  </style>
+  <script>
+    var count = 0;
+    var module = [];
+    var text = "";
+    $(document).ready(function () {
+
+      // Initialize select2
+      $("#selModule").select2();
+
+      // Read selected option
+      $('#but_read').click(function () {
+        var username = $('#selModule option:selected').text();
+        count++;
+
+        module[count] = username;
+        var userid = $('#selModule').val();
+      });
+      $('#show').click(function () {
+        for (i = 0; i < module.length; i++) {
+          text += module[i] + "    " + "X" + "<br>";
+        }
+        document.getElementById('result').innerHTML = text;
+
+      });
+    });
+  </script>
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
 
   <link href='https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
@@ -59,6 +60,7 @@ var text = "";
   <script src='//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.8/js/bootstrap-switch.min.js' type='text/javascript'></script>
   <script src='https://davidstutz.github.io/bootstrap-multiselect/js/bootstrap-multiselect.js' type='text/javascript'></script>
 </head>
+
 <body>
   <div class='container'>
     <div class='panel panel-primary dialog-panel'>
@@ -66,30 +68,30 @@ var text = "";
         <h5>Project proposal form</h5>
       </div>
       <div class='panel-body'>
-        <form class='form-horizontal' role='form'>
+        <form class='form-horizontal' action='/projects/add' method='post' role='form'>
           <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_accomodation'style="width:200px">Project name</label>
+            <label class='control-label col-md-2 col-md-offset-2' for='id_accomodation' style="width:200px">Project name</label>
             <div class='col-md-2'>
-              <input class='form-control' id='id_project_name' placeholder='Project name' type='text'>
+              <input class='form-control' id='id_project_name' placeholder='Project name' type='text' name="name">
             </div>
           </div>
-		  
-		  
-		  <div class='form-group'>
+
+
+          <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_comments'>Project description</label>
             <div class='col-md-6'>
-              <textarea class='form-control' id='id_comments' placeholder='Description up to maximum 200 words' rows='3'></textarea>
+              <textarea class='form-control' id='id_comments' placeholder='Description up to maximum 200 words' rows='3' name = "description"></textarea>
             </div>
           </div>
-		  <div class='form-group'>
-		  <label class='control-label col-md-2 col-md-offset-2' for='id_title'style="color:blue;text-size:15px">Group members:</label>
-		  </div>
-		  
-		  
+          <div class='form-group'>
+            <label class='control-label col-md-2 col-md-offset-2' for='id_title' style="color:blue;text-size:15px">Group members:</label>
+          </div>
+
+
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_title'>first member</label>
             <div class='col-md-6'>
-              
+
               <div class='col-md-3 indent-small'>
                 <div class='form-group internal'>
                   <input class='form-control' id='id_first_name' placeholder='First Name' type='text'>
@@ -102,13 +104,13 @@ var text = "";
               </div>
             </div>
           </div>
-		
-		
-		
-		  <div class='form-group'>
+
+
+
+          <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Second member</label>
             <div class='col-md-6'>
-              
+
               <div class='col-md-3 indent-small'>
                 <div class='form-group internal'>
                   <input class='form-control' id='id_first_name' placeholder='First Name' type='text'>
@@ -121,12 +123,12 @@ var text = "";
               </div>
             </div>
           </div>
-		  
-		  
-		  <div class='form-group'>
+
+
+          <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Third member</label>
             <div class='col-md-6'>
-              
+
               <div class='col-md-3 indent-small'>
                 <div class='form-group internal'>
                   <input class='form-control' id='id_first_name' placeholder='First Name' type='text'>
@@ -139,13 +141,13 @@ var text = "";
               </div>
             </div>
           </div>
-		  
-		  
-		  
-		  <div class='form-group'>
+
+
+
+          <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Fourth member</label>
             <div class='col-md-6'>
-             
+
               <div class='col-md-3 indent-small'>
                 <div class='form-group internal'>
                   <input class='form-control' id='id_first_name' placeholder='First Name' type='text'>
@@ -157,18 +159,18 @@ var text = "";
                 </div>
               </div>
             </div>
-			
+
           </div>
-		  
-		  
-		  
-		  
-		  
-		  
-		  <div class='form-group'>
+
+
+
+
+
+
+          <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Fifth member</label>
             <div class='col-md-6'>
-             
+
               <div class='col-md-3 indent-small'>
                 <div class='form-group internal'>
                   <input class='form-control' id='id_first_name' placeholder='First Name' type='text'>
@@ -181,29 +183,29 @@ var text = "";
               </div>
             </div>
           </div>
-		  
-		   
 
-		<div class='form-group'>
+
+
+          <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_comments'>Module required</label>
-				<select id='selModule' style='width:200px;'>
-				<option value="0">Soldering Iron rod(soldron,25watt)</option>
-				<option value="1">Micro solder station(soldron)</option>
-				<option value="2">humidity sensor</option>
-				<option value="3">gyro senser</option>
-				<option value="4">smoke senser</option>
-				<option value="5">Arduino</option>
-				<option value="6">rasberri pi</option>
-				<option value="7">temperature senser</option>
-				<option value="8">water senser</option>
-			</select>
-			<input type="button" value='Add module' id='but_read'>
-			<input type="button" value='show module' id='show'>
-			<div id='result'></div>
-          </div>		   
-		  
-		  
-          
+            <select id='selModule' style='width:200px;'>
+              <option value="0">Soldering Iron rod(soldron,25watt)</option>
+              <option value="1">Micro solder station(soldron)</option>
+              <option value="2">humidity sensor</option>
+              <option value="3">gyro senser</option>
+              <option value="4">smoke senser</option>
+              <option value="5">Arduino</option>
+              <option value="6">rasberri pi</option>
+              <option value="7">temperature senser</option>
+              <option value="8">water senser</option>
+            </select>
+            <input type="button" value='Add module' id='but_read'>
+            <input type="button" value='show module' id='show'>
+            <div id='result'></div>
+          </div>
+
+
+
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Contact</label>
             <div class='col-md-6'>
@@ -219,13 +221,13 @@ var text = "";
               </div>
             </div>
           </div>
-          
-		  
-		  
+
+
+
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_comments'>Comments</label>
             <div class='col-md-6'>
-              <textarea class='form-control' id='id_comments' placeholder='Additional comments' rows='3'></textarea>
+              <textarea class='form-control' id='id_comments' placeholder='Additional comments' rows='3' name = "comments"></textarea>
             </div>
           </div>
           <div class='form-group'>
