@@ -1,0 +1,22 @@
+{
+  "name": "iot-website",
+  "version": "1.0.0",
+  "description": "IoT Lab Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MistNewt/IoT-Website.git"
+  },
+  "author": "Sudhanshu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MistNewt/IoT-Website/issues"
+  },
+  "homepage": "https://github.com/MistNewt/IoT-Website#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
