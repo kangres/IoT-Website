@@ -28,11 +28,48 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/projects/add',(req,res)=>{
-    new Project(req.body)
+    //console.log(req.body)
+    //res.send("DONE")
+
+    var temp = []
+
+    for(var count = 0;count<req.body.firstName.length;count++) {
+        temp.push( {
+            firstName: req.body.firstName[count],
+            lastName: req.body.lastName[count]
+        })
+    }
+
+    //console.log(temp)
+
+    
+    var newProject = {
+        name: req.body.name,
+        description: req.body.description,
+        members: temp,
+        module: req.body.module,
+        contact:{
+            email:req.body.email,
+            phone:req.body.phone
+        },
+        comments: req.body.comments
+    }
+
+    console.log(newProject)
+
+    
+    
+    new Project(newProject)
         .save()
         .then(project => {
             res.send("Project Saved")
         })
+        .catch((err)=>{
+            console.log(err)
+            res.send("Error occured")
+        })
+        
+       //res.send("DONE")
 })
 
 const port = 5252
